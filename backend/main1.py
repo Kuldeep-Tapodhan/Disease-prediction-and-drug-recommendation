@@ -12,7 +12,7 @@ app = Flask(__name__)
 load_dotenv()
 
 # Set API keys
-GEMINI_API_KEY = "AIzaSyAu5V0fR6oaLf716A7Tk7dquSjwmvOR0fY"
+GEMINI_API_KEY = "gemini api key"
 os.environ['_BARD_API_KEY'] = GEMINI_API_KEY
 
 # Configure Gemini API
