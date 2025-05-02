@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🩺 Disease Prediction & Drug Recommendation</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>🩺 Disease Prediction & Drug Recommendation</h1>
+    <div id="main-container">
+      <!-- Input Section (Left Side) -->
+      <div id="input-section">
+        <div id="symptom-input-container">
+          <label for="symptom-select">Select Symptoms:</label>
+          <select class="list-option" id="symptom-select">
+            <option value="" disabled selected>Choose a symptom</option>
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+          </select>
+          <div id="selected-symptoms"></div>
+          <input type="hidden" id="selected-symptoms-list" name="symptoms" />
+
+          <!-- Predict Button stays here -->
+          <div id="predict-button-wrapper">
+            <button type="button" onclick="predictDisease()">
+              🔮 Predict Disease
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prediction Result (Right Side) -->
+      <div id="result-section">
+        <div id="prediction_results">
+          <!-- Results will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
